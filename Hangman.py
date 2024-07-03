@@ -2,6 +2,8 @@
 import os
 
 # I have a now comment
+# I have a now comment 2
+
 
 words_list = []
 path = '"C:/Users/051500/Desktop/Bondar/Hangman.txt"'
