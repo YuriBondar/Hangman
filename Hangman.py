@@ -99,5 +99,5 @@ if os.path.exists(path):
                     break
 
 else:
-    print("Es sind keine Wörter mehr zur Auswahl")
+    print("Erstellen ein neue Datei mit Wörter")
 
