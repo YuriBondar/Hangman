@@ -99,5 +99,5 @@ if os.path.exists(path):
                     break
 
 else:
-    print("Es sind keine Wörter mehr zur Auswahl")
+    print("Es sind keine Wörter mehr zur Auswahl. Es kann nicht mehr gespielt werden.")
 
