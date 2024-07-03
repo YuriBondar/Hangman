@@ -8,7 +8,7 @@ path = '"C:/Users/051500/Desktop/Bondar/Hangman.txt"'
 def gameHangman(word):
 
     attempt = 10    
-    gameWord = "--------------------------------------------------------------------"
+    gameWord = "---------------------------------------------------------------------"
     gameWord = gameWord[:word.length()+1]
 
     while True: 
