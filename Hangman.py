@@ -99,4 +99,5 @@ if os.path.exists(path):
                     break
 
 else:
-    print("Erstellen Sie ein neun Datai mit Wörter")
+    print("Es sind keine Wörter mehr zur Auswahl")
+
