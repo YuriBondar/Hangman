@@ -101,3 +101,5 @@ if os.path.exists(path):
 else:
     print("Erstellen ein neue Datei mit Wörter")
 
+
+
