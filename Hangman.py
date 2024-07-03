@@ -1,62 +1,102 @@
 
 import os
-
-# I have a now comment
-# I have a now comment 2
-
+import random
 
 words_list = []
-path = '"C:/Users/051500/Desktop/Bondar/Hangman.txt"'
+
+# Hangman.txt - Text Datei mit einer Liste von 100 zufälligen Wörtern
+
+path = "C:/Users/051500/Desktop/Bondar/Hangman.txt"
+# path = "C:/Users/bondr/PycharmProjects/Learning/Hangman.txt"
+# path = "C:/Users/051500/PycharmProjects/Bondar"
+
+def isLetterUsed(letter, usedLetters):
+    for x in usedLetters:
+        if x == letter:
+            return True
+    return False
 
 
-def gameHangman(word):
+# -------------------  Spiel-Engine -------------------------------
+def gameHangman(wordAnswer):
+    attempt = 10
+    listAnswer = list(wordAnswer.lower())
+    word = []
+    usedLetters = []
 
-    attempt = 10    
-    gameWord = "---------------------------------------------------------------------"
-    gameWord = gameWord[:word.length()+1]
-
-    while True: 
-        print("Find out this word:")
-        print(gameWord)
-        print(f"Attempt: {attempt}")
-        gameLetter = input("Input letter: ")
-
-        for i in range:
-            if i == gameLetter 
+    for i in range(len(listAnswer)):
+        word.append("_")
 
 
+    while True:
+        for i in range(10):
+            print("")
+
+        isletter = False
+
+        print("Erraten Sie das Wort(ein Produkt oder ein Artikel ):")
+        print(word)
+        print(f"Sie haben noch {attempt} Versuche")
+        print(f"Sie haben schon diese Buchstaben eingegeben{usedLetters}")
+        letter = input("Buchstabe eingeben: ")
+
+        if not letter.isalpha():
+            print("Nur Buchstaben eingeben!")
+        else:
+            letter = letter.lower()
+            if isLetterUsed(letter, usedLetters):
+                print(f"Sie haben schon diese Buchstabe eingegeben")
+                continue
+            else:
+                usedLetters.append(letter)
+                for i in range(len(wordAnswer)):
+                    if listAnswer[i] == letter:
+                        word[i] = letter
+                        isletter = True
+
+                if isletter == False:
+                    attempt = attempt - 1
+
+                if attempt == 0:
+                    print("Du hast verloren!")
+                    print(f"Das Wort, das erraten werden musste: {word}")
+                    return
+
+                if word.count("_") == 0:
+                    print("Du hast gewonnen!")
+                    print(f"Das gewinnende Wort: {word}")
+                    return
 
 
 
-# -------------------------- main programe ----------------------------------------------
+# -------------------------- main program ----------------------------------------------
 
 if os.path.exists(path):
-        f = open(path)
-        words_list = f.read().rsplit("\n") 
-        stringFromFile = f.read()
-        f.close
-else:
-    print("Something wrong. There is not database with words. Call support servise: 900-77-88")
+    f = open(path)
+    words_list = f.read().rsplit("\n")
+    stringFromFile = f.read()
+    f.close
 
+    while True:
+        print("1. Neues Spiel")
+        print("2. Beenden das Programm")
+        userSelect = input("Wählen Sie eine Option:")
 
-while True:
-
-    print("Wählen Sie eine Option:")
-    print("1. New game")
-    print("2. Out")
-
-    if not userChoise.isdigit():
-        print("Drucken Sie Zahlen von 1 bis 2")
-        continue
-    else:
-        userChoise = int(userChoise)
-        if  userChoise < 1 or userChoise > 2:
-            print("Drucken Sie Zahlen von 1 bis 2")
+        if not userSelect.isdigit():
+            print("Drücken Sie nur 1 oder 2")
             continue
         else:
-            randomNumber = int(round((words_list.count() * random.random() + 1), 0)) 
-            gameHangman(words_list[randomNumber])
-            words_list.pop(randomNumber)
-        if userChoise == 2:
-                break
+            userSelect = int(userSelect)
+            if userSelect < 1 or userSelect > 2:
+                print("Drücken Sie nur 1 oder 2")
+                continue
+            else:
+                randomNumber = random.randint(0, (len(words_list)-1))
+                wordAnswer = words_list[randomNumber]
+                gameHangman(wordAnswer)
+                words_list.pop(randomNumber)
+            if userSelect == 2:
+                    break
 
+else:
+    print("Es gibt keine Datenbank mit Wörtern. Rufen Sie den Kundendienst an: 900-77-88")
