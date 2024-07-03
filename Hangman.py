@@ -99,5 +99,7 @@ if os.path.exists(path):
                     break
 
 else:
-    print("Es sind keine Wörter mehr zur Auswahl. Es kann nicht mehr gespielt werden.")
+    print("Erstellen ein neue Datei mit Wörter")
+
+
 
