@@ -100,3 +100,4 @@ if os.path.exists(path):
 
 else:
     print("Es sind keine Wörter mehr zur Auswahl")
+
