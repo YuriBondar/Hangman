@@ -99,7 +99,7 @@ if os.path.exists(path):
                     break
 
 else:
-    print("Erstellen ein neue Datei mit Wörter. Zusätzlicher Satz")
+    print("Erstellen ein neue Datei mit Wörter. Zusätzlicher Satz!!!!!!!")
 
 
 
