@@ -99,4 +99,4 @@ if os.path.exists(path):
                     break
 
 else:
-    print("Es gibt keine Datain mit Wörter")
+    print("Erstellen Sie ein Datai mit Wörter")
