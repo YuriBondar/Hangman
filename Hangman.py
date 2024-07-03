@@ -99,4 +99,4 @@ if os.path.exists(path):
                     break
 
 else:
-    print("Es gibt keine Datenbank mit Wörtern. Rufen Sie den Kundendienst an: 900-77-88")
+    print("Es sind keine Wörter mehr zur Auswahl")
